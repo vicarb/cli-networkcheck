@@ -1,0 +1,5 @@
+psutil
+click
+tabulate
+colorama
+
