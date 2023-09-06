@@ -25,11 +25,12 @@ def main():
 
         sorted_stats = sorted(net_stats.values(), key=lambda k: k['sent'], reverse=True)[:10]
 
-        for stat in sorted_stats:
+        for idx, stat in enumerate(sorted_stats, 1):
+            rank = f"{idx}º"
             sent_str = colored(f"{stat['sent']} bytes", 'red') if stat['sent'] > 0 else f"{stat['sent']} bytes"
             received_str = colored(f"{stat['received']} bytes", 'green') if stat['received'] > 0 else f"{stat['received']} bytes"
             
-            print(f"Process: {stat['name']}, Sent: {sent_str}, Received: {received_str}")
+            print(f"{rank} Process: {stat['name']}, Sent: {sent_str}, Received: {received_str}")
 
         time.sleep(2)  # Set the sleep time for the refresh rate
 
